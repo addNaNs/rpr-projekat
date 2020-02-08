@@ -13,6 +13,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        RegistrationDAO.getInstance();
+
         HomeController ctrl = new HomeController();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
         loader.setController(ctrl);
