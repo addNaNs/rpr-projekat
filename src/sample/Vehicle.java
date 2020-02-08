@@ -1,17 +1,18 @@
 package sample;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Vehicle {
 
     SimpleStringProperty plates = new SimpleStringProperty();
+    SimpleStringProperty model = new SimpleStringProperty();
     SimpleIntegerProperty ownerId = new SimpleIntegerProperty();
     SimpleStringProperty category = new SimpleStringProperty();
 
-    public Vehicle(String plates, int ownerId, Character category){
+    public Vehicle(String plates, String model, int ownerId, Character category){
         this.plates.set(plates);
+        this.model.set(model);
         this.ownerId.set(ownerId);
         this.category.set(String.valueOf(category));
     }
@@ -26,6 +27,18 @@ public class Vehicle {
 
     public void setPlates(String plates) {
         this.plates.set(plates);
+    }
+
+    public String getModel() {
+        return model.get();
+    }
+
+    public SimpleStringProperty modelProperties() {
+        return model;
+    }
+
+    public void setPlatesetModel(String model) {
+        this.model.set(model);
     }
 
     public int getOwnerId() {
