@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="pane" prefWidth="684.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="pane" prefWidth="720.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -19,28 +19,28 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <columnConstraints>
-      <ColumnConstraints maxWidth="345.0" minWidth="10.0" prefWidth="311.0" />
-      <ColumnConstraints maxWidth="180.0" minWidth="10.0" prefWidth="151.0" />
-      <ColumnConstraints minWidth="10.0" prefWidth="120.0" />
-      <ColumnConstraints minWidth="10.0" prefWidth="120.0" />
+      <ColumnConstraints maxWidth="345.0" minWidth="10.0" prefWidth="320.0" />
+      <ColumnConstraints maxWidth="180.0" minWidth="10.0" prefWidth="160.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="150.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="150.0" />
    </columnConstraints>
    <children>
       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4">
         <columns>
           <TableColumn prefWidth="81.0" text="Ime" />
-          <TableColumn prefWidth="84.0" text="Prezime" />
-            <TableColumn prefWidth="140.0" text="e-mail" />
+          <TableColumn prefWidth="92.0" text="Prezime" />
+            <TableColumn prefWidth="141.0" text="e-mail" />
         </columns>
       </TableView>
 
       <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" GridPane.rowSpan="4">
          <columns>
-            <TableColumn prefWidth="133.0" text="Kod Radionice" />
-            <TableColumn prefWidth="172.0" text="Moguće Kategorije" />
+            <TableColumn prefWidth="129.00001525878906" text="Kod Radionice" />
+            <TableColumn prefWidth="185.0" text="Moguće Kategorije" />
          </columns>
       </TableView>
       <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowSpan="9" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowSpan="9" />
       <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Novi Pregled" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="2">
          <padding>
             <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -48,19 +48,22 @@
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin></Button>
-      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowSpan="4">
+      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="3">
          <children>
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Pogledaj Korisnika" />
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Dodaj Korisnika" />
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Obriši Korisnika" />
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Pogledaj" />
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Dodaj" />
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Obriši" />
          </children></VBox>
 
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.rowSpan="4">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.rowSpan="3">
          <children>
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Pogledaj Radionicu" />
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Dodaj Radionicu" />
-            <Button mnemonicParsing="false" prefWidth="145.0" text="Obriši Radionicu" />
-         </children></VBox>
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Pogledaj" />
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Dodaj" />
+            <Button mnemonicParsing="false" prefWidth="120.0" text="Obriši" />
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" top="5.0" />
+         </opaqueInsets></VBox>
       <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Izvještaj" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -87,6 +90,8 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
       </HBox>
+      <Label text="Uposlenici" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Label text="Radionice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
 
    </children>
 </GridPane>
