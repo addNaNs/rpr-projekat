@@ -3,6 +3,7 @@ package sample;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RegistrationDAO {
@@ -117,6 +118,72 @@ public class RegistrationDAO {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Employee> employees(){
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from employee");
+            while(resultSet.next()){
+                Employee employee = new Employee(resultSet.getInt(1), resultSet.getString(2),
+                        resultSet.getString(3), resultSet.getString(4), resultSet.getString(5),
+                        resultSet.getString(6).toLowerCase().equals("male") ? Person.Gender.Male : Person.Gender.Female);
+                employees.add(employee);
+            }
+
+            return employees;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public ArrayList<Vehicle> vehicles(){
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from vehicle");
+            while(resultSet.next()){
+                Vehicle vehicle = new Vehicle(resultSet.getString(1), resultSet.getString(2),
+                        resultSet.getInt(3), resultSet.getString(4).charAt(0));
+                vehicles.add(vehicle);
+            }
+
+            return vehicles;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public ArrayList<Customer> customers(){
+        ArrayList<Customer> customers = new ArrayList<>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from vehicle");
+            while(resultSet.next()){
+                Customer customer = new Customer(resultSet.getInt(1), resultSet.getString(2),
+                        resultSet.getString(3), resultSet.getString(4), resultSet.getString(5),
+                        resultSet.getString(6).toLowerCase().equals("male") ? Person.Gender.Male : Person.Gender.Female);
+
+                customers.add(customer);
+            }
+
+            return customers;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }
