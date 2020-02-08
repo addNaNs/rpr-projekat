@@ -5,18 +5,25 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Employee {
 
+    public enum Gender{
+        Male,
+        Female
+    }
+
     SimpleIntegerProperty id = new SimpleIntegerProperty();
     SimpleStringProperty firstName = new SimpleStringProperty();
     SimpleStringProperty lastName = new SimpleStringProperty();
-    SimpleStringProperty eMail = new SimpleStringProperty();
+    SimpleStringProperty email = new SimpleStringProperty();
     SimpleStringProperty profileImagePath = new SimpleStringProperty();
+    Gender sex;
 
-    public Employee(int id, String firstName, String lastName, String eMail, String profileImagePath){
+    public Employee(int id, String firstName, String lastName, String email, String profileImagePath, Gender sex){
         this.id.set(id);
         this.firstName.set(firstName);
         this.lastName.set(lastName);
-        this.eMail.set(eMail);
+        this.email.set(email);
         this.profileImagePath.set(profileImagePath);
+        this.sex = sex;
     }
 
     public int getId() {
@@ -55,16 +62,16 @@ public class Employee {
         this.lastName.set(lastName);
     }
 
-    public String getEMail() {
-        return eMail.get();
+    public String getEmail() {
+        return email.get();
     }
 
-    public SimpleStringProperty eMailProperty() {
-        return eMail;
+    public SimpleStringProperty emailProperty() {
+        return email;
     }
 
-    public void setEMail(String eMail) {
-        this.eMail.set(eMail);
+    public void setEmail(String email) {
+        this.email.set(email);
     }
 
     public String getProfileImagePath() {
@@ -77,5 +84,13 @@ public class Employee {
 
     public void setProfileImagePath(String profileImagePath) {
         this.profileImagePath.set(profileImagePath);
+    }
+
+    public Gender getSex() {
+        return sex;
+    }
+
+    public void setSex(Gender sex) {
+        this.sex = sex;
     }
 }
