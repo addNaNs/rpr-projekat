@@ -13,7 +13,7 @@ public class Vehicle {
     public Vehicle(String plates, int ownerId, Character category){
         this.plates.set(plates);
         this.ownerId.set(ownerId);
-        this.ownerId.set(category);
+        this.category.set(String.valueOf(category));
     }
 
     public String getPlates() {
