@@ -18,6 +18,7 @@ public class RegistrationDAO {
         if (instance == null) instance = new RegistrationDAO();
         return instance;
     }
+
     private RegistrationDAO() {
         conn = null;
         try {
@@ -80,6 +81,20 @@ public class RegistrationDAO {
             }
 
         } catch (SQLException e) {
+        }
+    }
+
+    public static void sortCharsInString(String s){
+        char[] arrayList = s.toCharArray();
+        int n = s.length();
+        for(int i = 0; i < n-1; i++){
+            for(int j = 0; j < n-1; j++){
+                if(arrayList[j] > arrayList[j+1]){
+                    char tmp = arrayList[j];
+                    arrayList[j] = arrayList[j+1];
+                    arrayList[j+1] = tmp;
+                }
+            }
         }
     }
 
@@ -178,6 +193,35 @@ public class RegistrationDAO {
             }
 
             return customers;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public ArrayList<Workshop> workshops(){
+        ArrayList<Workshop> workshops = new ArrayList<>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from workshop");
+            while(resultSet.next()){
+                String examinable = "";
+                Statement statement1 = conn.createStatement();
+                ResultSet resultSet1 = statement1.executeQuery("select * from examinable where workshop_id="+resultSet.getInt(1));
+                while (resultSet1.next()){
+                    examinable += resultSet1.getString(3);
+                }
+                sortCharsInString(examinable);
+
+                Workshop workshop = new Workshop(resultSet.getInt(1), examinable);
+                workshops.add(workshop);
+            }
+
+
+            return workshops;
 
         } catch (SQLException e) {
             e.printStackTrace();

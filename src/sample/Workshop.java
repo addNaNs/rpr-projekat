@@ -7,12 +7,12 @@ import javafx.beans.property.SimpleStringProperty;
 public class Workshop {
     SimpleIntegerProperty id = new SimpleIntegerProperty();
     SimpleStringProperty examinableCategories = new SimpleStringProperty();
-    SimpleBooleanProperty isAvailable = new SimpleBooleanProperty();
+    //SimpleBooleanProperty isAvailable = new SimpleBooleanProperty();
 
-    public Workshop(int id, String examinableCategories, boolean isAvailable){
+    public Workshop(int id, String examinableCategories){
         this.id.set(id);
         this.examinableCategories.set(examinableCategories);
-        this.isAvailable.set(isAvailable);
+        //this.isAvailable.set(isAvailable);
     }
 
     public int getId() {
@@ -38,7 +38,7 @@ public class Workshop {
     public void setExaminableCategories(String examinableCategories) {
         this.examinableCategories.set(examinableCategories);
     }
-
+/*
     public boolean getIsAvailable() {
         return isAvailable.get();
     }
@@ -50,6 +50,6 @@ public class Workshop {
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable.set(isAvailable);
     }
-
+*/
 
 }
