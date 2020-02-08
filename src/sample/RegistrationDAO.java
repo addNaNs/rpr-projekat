@@ -168,7 +168,7 @@ public class RegistrationDAO {
 
         try{
             Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from vehicle");
+            ResultSet resultSet = statement.executeQuery("select * from customer");
             while(resultSet.next()){
                 Customer customer = new Customer(resultSet.getInt(1), resultSet.getString(2),
                         resultSet.getString(3), resultSet.getString(4), resultSet.getString(5),
@@ -185,5 +185,6 @@ public class RegistrationDAO {
 
         return null;
     }
+
 
 }

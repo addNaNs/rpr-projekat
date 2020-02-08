@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
@@ -13,8 +15,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
-        RegistrationDAO.getInstance();
 
         HomeController ctrl = new HomeController();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
