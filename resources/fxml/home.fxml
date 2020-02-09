@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="pane" prefWidth="720.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="pane" prefHeight="300.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -19,24 +19,24 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <columnConstraints>
-      <ColumnConstraints maxWidth="345.0" minWidth="10.0" prefWidth="320.0" />
-      <ColumnConstraints maxWidth="180.0" minWidth="10.0" prefWidth="160.0" />
-      <ColumnConstraints minWidth="10.0" prefWidth="150.0" />
-      <ColumnConstraints minWidth="10.0" prefWidth="150.0" />
+      <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="420.0" />
+      <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
+      <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+      <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
    </columnConstraints>
    <children>
-      <TableView fx:id="tableEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4">
+      <TableView fx:id="tableViewEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4">
         <columns>
-          <TableColumn fx:id="colEmployeeFirstName" prefWidth="81.0" text="Ime" />
-          <TableColumn fx:id="colEmployeeLastName" prefWidth="92.0" text="Prezime" />
-          <TableColumn fx:id="colEmployeeEmail" prefWidth="141.0" text="e-mail" />
+          <TableColumn fx:id="colEmployeeFirstName" prefWidth="99.0" text="Ime" />
+          <TableColumn fx:id="colEmployeeLastName" prefWidth="142.0" text="Prezime" />
+          <TableColumn fx:id="colEmployeeEmail" prefWidth="158.0" text="e-mail" />
         </columns>
       </TableView>
 
-      <TableView fx:id="tableWorkshop" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" GridPane.rowSpan="4">
+      <TableView fx:id="tableViewWorkshop" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" GridPane.rowSpan="4">
          <columns>
-            <TableColumn fx:id="colWorkshopId" prefWidth="129.0" text="Kod Radionice" />
-            <TableColumn fx:id="colWorkshopCategories" prefWidth="185.0" text="Moguće Kategorije" />
+            <TableColumn fx:id="colWorkshopId" prefWidth="184.0" text="Kod Radionice" />
+            <TableColumn fx:id="colWorkshopCategories" prefWidth="215.0" text="Moguće Kategorije" />
          </columns>
       </TableView>
       <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />

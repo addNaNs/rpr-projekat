@@ -235,7 +235,6 @@ public class RegistrationDAO {
         return null;
     }
 
-
     public ArrayList<Checkup> checkups(){
         ArrayList<Checkup> checkups = new ArrayList<>();
 
