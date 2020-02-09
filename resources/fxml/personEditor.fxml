@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="pane" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="160.0" />
+        <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
+      <ColumnConstraints />
+    </columnConstraints>
+   <children>
+      <Label text="ime">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+      <Label text="prezime" GridPane.rowIndex="1">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+      <Label text="email" GridPane.rowIndex="2">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+      <Label text="slika URL" GridPane.rowIndex="3">
+         <padding>
+            <Insets left="5.0" />
+         </padding></Label>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+         <children>
+            <Button mnemonicParsing="false" text="Izadji" />
+            <Button mnemonicParsing="false" text="Ok" />
+         </children></HBox>
+      <TextField GridPane.columnIndex="1" />
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+       <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="4" GridPane.valignment="CENTER">
+           <image>
+               <Image url="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-omega-ruby-and-alpha-sapphire/d/d7/Regigigas.jpg?width=325" />
+           </image>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+       </ImageView>
+   </children>
+</GridPane>
