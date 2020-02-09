@@ -79,6 +79,25 @@ public class HomeController {
         }
     }
 
+    public void actionUpdateEmployee(ActionEvent actionEvent){
+        Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
+        if(employee==null) return;
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"));
+            PersonEditorController personEditorController = new PersonEditorController(employee);
+            loader.setController(personEditorController);
+            root = loader.load();
+            stage.setTitle("Promijeni uposlenika");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void actionAddWorkshop(ActionEvent actionEvent){
         Stage stage = new Stage();
         Parent root = null;

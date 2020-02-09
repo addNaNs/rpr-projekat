@@ -38,8 +38,8 @@
          </padding></Label>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
          <children>
-            <Button mnemonicParsing="false" text="Izadji" />
-            <Button mnemonicParsing="false" text="Ok" />
+            <Button mnemonicParsing="false" onAction="#clickCancel" text="Izadji" />
+            <Button mnemonicParsing="false" onAction="#clickOk" text="Ok" />
          </children></HBox>
       <TextField fx:id="fieldFirstName" GridPane.columnIndex="1" />
       <TextField fx:id="fieldLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
