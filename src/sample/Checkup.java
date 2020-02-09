@@ -6,6 +6,7 @@ public class Checkup {
 
     Employee assignee;
     Vehicle vehicle;
+    Workshop workshop;
     Date date;
     boolean passedBrakeTest;
     boolean passedSteeringTest;
@@ -13,10 +14,11 @@ public class Checkup {
     boolean passedEngineTest;
     boolean passedElectricalTest;
 
-    public Checkup(Employee assignee, Vehicle vehicle, Date date, boolean passedBrakeTest, boolean passedSteeringTest,
+    public Checkup(Employee assignee, Vehicle vehicle, Workshop workshop, Date date, boolean passedBrakeTest, boolean passedSteeringTest,
                    boolean passedLightingTest, boolean passedEngineTest, boolean passedElectricalTest) {
         this.assignee = assignee;
         this.vehicle = vehicle;
+        this.workshop = workshop;
         this.date = new Date(date.getTime());
         this.passedBrakeTest = passedBrakeTest;
         this.passedSteeringTest = passedSteeringTest;
@@ -25,10 +27,11 @@ public class Checkup {
         this.passedElectricalTest = passedElectricalTest;
     }
 
-    public Checkup(Employee assignee, Vehicle vehicle, boolean passedBrakeTest, boolean passedSteeringTest,
+    public Checkup(Employee assignee, Vehicle vehicle, Workshop workshop, boolean passedBrakeTest, boolean passedSteeringTest,
                    boolean passedLightingTest, boolean passedEngineTest, boolean passedElectricalTest) {
         this.assignee = assignee;
         this.vehicle = vehicle;
+        this.workshop = workshop;
         this.date = new Date();
         this.passedBrakeTest = passedBrakeTest;
         this.passedSteeringTest = passedSteeringTest;
@@ -43,6 +46,10 @@ public class Checkup {
 
     public Vehicle getVehicle() {
         return vehicle;
+    }
+
+    public Workshop getWorkshop() {
+        return workshop;
     }
 
     public Date getDate() {

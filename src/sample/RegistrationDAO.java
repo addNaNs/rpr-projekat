@@ -231,4 +231,58 @@ public class RegistrationDAO {
     }
 
 
+    public ArrayList<Checkup> checkups(){
+        ArrayList<Checkup> checkups = new ArrayList<>();
+
+        try{
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from checkup");
+            while(resultSet.next()){
+                Statement statement1 = conn.createStatement();
+                ResultSet resultSet1 = statement1.executeQuery("select * from employee where id="+resultSet.getInt(2));
+                Employee assignee = null;
+                while (resultSet1.next()){
+                    assignee = new Employee(resultSet1.getInt(1), resultSet1.getString(2),
+                            resultSet1.getString(3), resultSet1.getString(4), resultSet1.getString(5),
+                            resultSet1.getString(6).toLowerCase().equals("male") ? Person.Gender.Male : Person.Gender.Female);
+                }
+
+                resultSet1 = statement1.executeQuery("select * from vehicle where plates="+resultSet.getInt(3));
+                Vehicle vehicle = null;
+                while (resultSet1.next()){
+                    vehicle = new Vehicle(resultSet1.getString(1), resultSet1.getString(2),
+                            resultSet1.getInt(3), resultSet1.getString(4).charAt(0));
+                }
+
+                resultSet1 = statement1.executeQuery("select * from workshop where id="+resultSet.getInt(4));
+                Workshop workshop = null;
+                while (resultSet1.next()){
+                    String examinable = "";
+                    Statement statement2 = conn.createStatement();
+                    ResultSet resultSet2 = statement2.executeQuery("select * from examinable where workshop_id="+resultSet1.getInt(1));
+                    while (resultSet2.next()){
+                        examinable += resultSet2.getString(3);
+                    }
+                    sortCharsInString(examinable);
+
+                    workshop = new Workshop(resultSet.getInt(1), examinable);
+                }
+
+
+
+                Checkup checkup = new Checkup(assignee,vehicle, workshop,resultSet.getDate(5), true, true, true, true, true);
+                checkups.add(checkup);
+            }
+
+
+            return checkups;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
 }
