@@ -79,6 +79,23 @@ public class HomeController {
         }
     }
 
+    public void actionAddWorkshop(ActionEvent actionEvent){
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"));
+            WorkshopEditorController workshopEditorController = new WorkshopEditorController(null);
+            loader.setController(workshopEditorController);
+            root = loader.load();
+            stage.setTitle("Nova Radionica");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 
