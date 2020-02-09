@@ -28,9 +28,12 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class HomeController {
 
     public TableView<Employee> tableViewEmployee;
+    public TableView<Workshop> tableViewWorkshop;
     public TableColumn colEmployeeFirstName;
     public TableColumn colEmployeeLastName;
     public TableColumn colEmployeeEmail;
+    public TableColumn colWorkshopId;
+    public TableColumn colWorkshopCategories;
 
     private ObservableList<Employee> listEmployee;
     private ObservableList<Vehicle> listVehicle;
@@ -53,6 +56,10 @@ public class HomeController {
         colEmployeeFirstName.setCellValueFactory(new PropertyValueFactory("firstName"));
         colEmployeeLastName.setCellValueFactory(new PropertyValueFactory("lastName"));
         colEmployeeEmail.setCellValueFactory(new PropertyValueFactory("email"));
+
+        tableViewWorkshop.setItems(listWorkshop);
+        colWorkshopId.setCellValueFactory(new PropertyValueFactory("id"));
+        colWorkshopCategories.setCellValueFactory(new PropertyValueFactory("examinableCategories"));
     }
 
 
