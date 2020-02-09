@@ -41,10 +41,10 @@
             <Button mnemonicParsing="false" text="Izadji" />
             <Button mnemonicParsing="false" text="Ok" />
          </children></HBox>
-      <TextField GridPane.columnIndex="1" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="fieldFirstName" GridPane.columnIndex="1" />
+      <TextField fx:id="fieldLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="fieldEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="fieldImage" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
        <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="4" GridPane.valignment="CENTER">
            <image>
