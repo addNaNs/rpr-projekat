@@ -27,9 +27,9 @@
    <children>
       <TableView fx:id="tableViewEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4">
         <columns>
-          <TableColumn fx:id="colEmployeeFirstName" prefWidth="99.0" text="Ime" />
-          <TableColumn fx:id="colEmployeeLastName" prefWidth="142.0" text="Prezime" />
-          <TableColumn fx:id="colEmployeeEmail" prefWidth="158.0" text="e-mail" />
+          <TableColumn fx:id="colEmployeeFirstName" prefWidth="100.0" text="Ime" />
+          <TableColumn fx:id="colEmployeeLastName" prefWidth="140.0" text="Prezime" />
+          <TableColumn fx:id="colEmployeeEmail" prefWidth="150.0" text="e-mail" />
         </columns>
       </TableView>
 
@@ -66,12 +66,7 @@
          </opaqueInsets></VBox>
       <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Izvještaj" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
          <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
-      <Button mnemonicParsing="false" prefHeight="10000.0" prefWidth="10000.0" text="Sačuvaj" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.rowSpan="2">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin>
       </Button>
       <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
@@ -92,6 +87,16 @@
       </HBox>
       <Label text="Uposlenici" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Label text="Radionice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Poznata Vozila" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+      </Button>
 
    </children>
 </GridPane>
