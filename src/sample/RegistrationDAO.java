@@ -2,6 +2,9 @@ package sample;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -48,7 +51,7 @@ public class RegistrationDAO {
                             " workshop_id integer references workshop(id), category varchar(1))");
 
                     statement.execute("create table checkup(id integer primary key," +
-                            " assignee_id integer references employee(id), vehicle_plates integer references vehicle(plates)," +
+                            " assignee_id integer references employee(id), vehicle_plates varchar(15) references vehicle(plates)," +
                             " workshop_id integer references workshop(id), date date)");
 
                     statement.execute("insert into employee values (1,'imenko','prezimenkovic','bla@bla','nema','male')");
@@ -73,7 +76,8 @@ public class RegistrationDAO {
                     statement.execute("insert into examinable values(4, 2, 'D')");
                     statement.execute("insert into examinable values(5, 2, 'E')");
 
-                    statement.execute("insert into checkup values (1,1,'123',2,SYSDATE)");
+                    statement.execute("insert into checkup values (1,1,'123',2, current_date)");
+                    statement.execute("insert into checkup values (2,2,'124',2, current_date)");
 
                 }catch (Exception ex){
 
@@ -81,6 +85,7 @@ public class RegistrationDAO {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -268,16 +273,18 @@ public class RegistrationDAO {
                     workshop = new Workshop(resultSet.getInt(1), examinable);
                 }
 
+                String sDate = resultSet.getString(5);
+                Date date = new SimpleDateFormat("dd-mm-yyyy").parse(sDate);
 
 
-                Checkup checkup = new Checkup(assignee,vehicle, workshop,resultSet.getDate(5), true, true, true, true, true);
+                Checkup checkup = new Checkup(assignee,vehicle, workshop, date, true, true, true, true, true);
                 checkups.add(checkup);
             }
 
 
             return checkups;
 
-        } catch (SQLException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
 
