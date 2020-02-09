@@ -21,6 +21,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -41,8 +42,10 @@ public class HomeController {
     private ObservableList<Workshop> listWorkshop;
     private ObservableList<Checkup> listCheckup;
 
+    private RegistrationDAO dao;
+
     public HomeController() {
-        RegistrationDAO dao = RegistrationDAO.getInstance();
+        dao = RegistrationDAO.getInstance();
         listEmployee = FXCollections.observableArrayList(dao.employees());
         listVehicle = FXCollections.observableArrayList(dao.vehicles());
         listCustomer = FXCollections.observableArrayList(dao.customers());
@@ -98,6 +101,22 @@ public class HomeController {
         }
     }
 
+    public void actionDeleteEmployee(ActionEvent actionEvent) {
+        Employee employee = tableViewEmployee.getSelectionModel().getSelectedItem();
+        if (employee == null) return;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Alert!");
+        alert.setHeaderText("Deleting "+employee.getFirstName() + " " + employee.getLastName());
+        alert.setContentText("Are you sure?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            //dao.deleteEmployee(employee); TODO
+            listEmployee.setAll(dao.employees());
+        }
+    }
+
     public void actionAddWorkshop(ActionEvent actionEvent){
         Stage stage = new Stage();
         Parent root = null;
@@ -107,6 +126,25 @@ public class HomeController {
             loader.setController(workshopEditorController);
             root = loader.load();
             stage.setTitle("Nova Radionica");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actionUpdateWorkshop(ActionEvent actionEvent){
+        Workshop workshop = tableViewWorkshop.getSelectionModel().getSelectedItem();
+        if(workshop == null) return;
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"));
+            WorkshopEditorController workshopEditorController = new WorkshopEditorController(workshop);
+            loader.setController(workshopEditorController);
+            root = loader.load();
+            stage.setTitle("Promijeni radionicu");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
