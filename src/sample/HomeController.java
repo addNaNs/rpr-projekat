@@ -62,5 +62,24 @@ public class HomeController {
         colWorkshopCategories.setCellValueFactory(new PropertyValueFactory("examinableCategories"));
     }
 
+    public void actionAddEmployee(ActionEvent actionEvent){
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"));
+            PersonEditorController personEditorController = new PersonEditorController(null);
+            loader.setController(personEditorController);
+            root = loader.load();
+            stage.setTitle("Novi uposlenik");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 }

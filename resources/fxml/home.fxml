@@ -51,7 +51,7 @@
       <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="3">
          <children>
             <Button mnemonicParsing="false" prefWidth="120.0" text="Pogledaj" />
-            <Button mnemonicParsing="false" prefWidth="120.0" text="Dodaj" />
+            <Button mnemonicParsing="false" onAction="#actionAddEmployee" prefWidth="120.0" text="Dodaj" />
             <Button mnemonicParsing="false" prefWidth="120.0" text="Obriši" />
          </children></VBox>
 
