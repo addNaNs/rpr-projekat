@@ -153,7 +153,21 @@ public class HomeController {
         }
     }
 
+    public void actionDeleteWorkshop(ActionEvent actionEvent) {
+        Workshop workshop = tableViewWorkshop.getSelectionModel().getSelectedItem();
+        if (workshop == null) return;
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Alert!");
+        alert.setHeaderText("Deleting Workshop "+workshop.getId());
+        alert.setContentText("Are you sure?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            //dao.deleteWorkshop(workshop); TODO
+            listWorkshop.setAll(dao.workshops());
+        }
+    }
 
 
 }
