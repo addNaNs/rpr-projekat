@@ -290,5 +290,20 @@ public class RegistrationDAO {
         return null;
     }
 
+    public void addEmployee(Employee employee){
+        Statement statement = null;
+        try {
+            int maxId = 1;
+            statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select max(id) from employee");
+            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
+            statement.execute("insert into employee values(" + maxId +", " + employee.getFirstName() +", "
+                    + employee.getLastName() + ", " + employee.getEmail() + ", " + employee.getProfileImagePath()
+                    + ", " + (employee.getSex() == Person.Gender.Male ? "male" : "female") + ");");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
