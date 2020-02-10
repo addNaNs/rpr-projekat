@@ -15,6 +15,11 @@ public class Workshop {
         //this.isAvailable.set(isAvailable);
     }
 
+    public Workshop(Workshop workshop) {
+        this( new Integer(workshop.getId()), new String(workshop.getExaminableCategories()));
+    }
+
+
     public int getId() {
         return id.get();
     }

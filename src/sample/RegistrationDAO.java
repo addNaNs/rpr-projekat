@@ -356,7 +356,25 @@ public class RegistrationDAO {
     public void deleteWorkshop(Workshop workshop){
         try {
             Statement statement = conn.createStatement();
+            statement.execute("delete from examinable where workshop_id=" + workshop.getId());
             statement.execute("delete from workshop where id=" + workshop.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateWorkshop(Workshop workshop){
+        try {
+            int maxId=1;
+            Statement statement = conn.createStatement();
+            statement.execute("delete from examinable where workshop_id="+workshop.getId());
+            ResultSet resultSet = statement.executeQuery("select  max(id) from examinable");
+            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
+            for (char c : workshop.getExaminableCategories().toCharArray()) {
+                statement.execute("insert into examinable values(" + (maxId++) + "," + workshop.getId() + ",'" + c + "')");
+            }
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

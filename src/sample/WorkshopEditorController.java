@@ -15,7 +15,9 @@ public class WorkshopEditorController {
     private Workshop workshop;
 
     public WorkshopEditorController(Workshop workshop) {
-        this.workshop = workshop;
+        if(workshop != null){
+            this.workshop = new Workshop(workshop);
+        }
     }
 
     @FXML
@@ -36,7 +38,8 @@ public class WorkshopEditorController {
         if (!allGood) return;
 
         if (workshop == null){
-            RegistrationDAO.getInstance().addWorkshop(new Workshop(-1,fieldCategories.getText()));
+            workshop = new Workshop(-1,fieldCategories.getText());
+            RegistrationDAO.getInstance().addWorkshop(workshop);
         }
 
         Stage stage = (Stage) fieldCategories.getScene().getWindow();
