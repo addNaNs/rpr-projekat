@@ -306,6 +306,15 @@ public class RegistrationDAO {
 
     }
 
+    public void deleteEmployee(Employee employee){
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute("delete from employee where id=" + employee.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addWorkshop(Workshop workshop) {
         Statement statement = null;
         try {
@@ -323,6 +332,15 @@ public class RegistrationDAO {
                 statement.execute("insert into examinable values(" + (maxId1++) + "," + maxId + ",'" + c + "');");
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteWorkshop(Workshop workshop){
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute("delete from workshop where id=" + workshop.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

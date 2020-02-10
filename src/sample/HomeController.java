@@ -119,7 +119,7 @@ public class HomeController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            //dao.deleteEmployee(employee); TODO
+            dao.deleteEmployee(employee);
             listEmployee.setAll(dao.employees());
         }
     }
@@ -177,7 +177,7 @@ public class HomeController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-            //dao.deleteWorkshop(workshop); TODO
+            dao.deleteWorkshop(workshop);
             listWorkshop.setAll(dao.workshops());
         }
     }
