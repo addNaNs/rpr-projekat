@@ -24,6 +24,8 @@ public class WorkshopEditorController {
     public void initialize() {
         if (workshop != null) {
             fieldCategories.textProperty().bindBidirectional(workshop.examinableCategoriesProperty());
+        } else {
+            this.workshop = null;
         }
     }
 

@@ -22,7 +22,11 @@ public class PersonEditorController {
     private Person person;
 
     public PersonEditorController(Person person) {
-        this.person = person;
+        if(person != null){
+            this.person = new Employee(person);
+        } else {
+            this.person=null;
+        }
     }
 
     @FXML

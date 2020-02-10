@@ -5,18 +5,19 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Person {
 
+
+
     public enum Gender{
         Male,
-        Female
+        Female;
     }
-
     SimpleIntegerProperty id = new SimpleIntegerProperty();
+
     SimpleStringProperty firstName = new SimpleStringProperty();
     SimpleStringProperty lastName = new SimpleStringProperty();
     SimpleStringProperty email = new SimpleStringProperty();
     SimpleStringProperty profileImagePath = new SimpleStringProperty();
     Gender sex;
-
     public Person(int id, String firstName, String lastName, String email, String profileImagePath, Gender sex){
         this.id.set(id);
         this.firstName.set(firstName);
@@ -33,6 +34,12 @@ public class Person {
         this.email.set(email);
         this.profileImagePath.set(profileImagePath);
         this.sex = sex;
+    }
+
+    public Person(Person person) {
+        this(new Integer(person.getId()), new String(person.getFirstName()), new String(person.getLastName()),
+                new String(person.getEmail()), new String(person.getProfileImagePath()),
+                person.getSex()==Gender.Male ? Gender.Male : Gender.Female);
     }
 
     public int getId() {
