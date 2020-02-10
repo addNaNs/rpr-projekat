@@ -77,6 +77,13 @@ public class HomeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+
+            stage.setOnHiding( event -> {
+                if (personEditorController.getPerson() == null) {
+                    listEmployee.setAll(dao.employees());
+                }
+            } );
+
         } catch (IOException e) {
             e.printStackTrace();
         }

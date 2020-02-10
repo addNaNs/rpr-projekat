@@ -297,9 +297,9 @@ public class RegistrationDAO {
             statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery("select max(id) from employee");
             while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
-            statement.execute("insert into employee values(" + maxId +", " + employee.getFirstName() +", "
-                    + employee.getLastName() + ", " + employee.getEmail() + ", " + employee.getProfileImagePath()
-                    + ", " + (employee.getSex() == Person.Gender.Male ? "male" : "female") + ");");
+            statement.execute("insert into employee values(" + maxId +", '" + employee.getFirstName() +"', '"
+                    + employee.getLastName() + "', '" + employee.getEmail() + "', '" + employee.getProfileImagePath()
+                    + "', '" + (employee.getSex() == Person.Gender.Male ? "male" : "female") + "');");
         } catch (SQLException e) {
             e.printStackTrace();
         }

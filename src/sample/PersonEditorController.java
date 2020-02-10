@@ -55,10 +55,16 @@ public class PersonEditorController {
         if (!allGood) return;
 
         if (person == null){
-            //dodaj; TODO
+            RegistrationDAO.getInstance().addEmployee(new Employee(-1,fieldFirstName.getText(),
+                    fieldLastName.getText(),fieldEmail.getText(),fieldImage.getText(),
+                    radioMale.isSelected() ? Person.Gender.Male : Person.Gender.Female));
         }
 
         Stage stage = (Stage) fieldFirstName.getScene().getWindow();
         stage.close();
+    }
+
+    public Person getPerson(){
+        return person;
     }
 }
