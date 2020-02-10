@@ -290,6 +290,22 @@ public class RegistrationDAO {
         return null;
     }
 
+    public void updateEmployee(Employee employee){
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute("update employee set " +
+                    "first_name='" + employee.getFirstName() +"', " +
+                    "last_name='" + employee.getLastName() + "', " +
+                    "email='" + employee.getEmail() + "', " +
+                    "profile_image_path='" + employee.getProfileImagePath() + "'," +
+                    "gender='" + (employee.getSex()==Person.Gender.Male ? "male" : "female") + "'" +
+                    "where id=" + employee.getId()+";"
+                   );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addEmployee(Employee employee){
         Statement statement = null;
         try {

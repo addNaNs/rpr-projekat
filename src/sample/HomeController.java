@@ -79,7 +79,7 @@ public class HomeController {
             stage.show();
 
             stage.setOnHiding( event -> {
-                if (personEditorController.getPerson() == null) {
+                if (personEditorController.getPerson() != null) {
                     listEmployee.setAll(dao.employees());
                 }
             } );
@@ -103,6 +103,14 @@ public class HomeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+
+            stage.setOnHiding( event -> {
+                if (personEditorController.getPerson() != null) {
+                    dao.updateEmployee( (Employee) personEditorController.getPerson());
+                    listEmployee.setAll(dao.employees());
+                }
+            } );
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -42,6 +42,18 @@ public class PersonEditorController {
                 radioFemale.fire();
             }
         }
+
+        radioMale.selectedProperty().addListener(((observable, oldValue, newValue) -> {
+            if(person != null && newValue){
+                person.setSex(Person.Gender.Male);
+            }
+        }));
+
+        radioFemale.selectedProperty().addListener(((observable, oldValue, newValue) -> {
+            if(person != null && newValue){
+                person.setSex(Person.Gender.Female);
+            }
+        }));
     }
 
     public void clickCancel(ActionEvent actionEvent) {
@@ -55,9 +67,12 @@ public class PersonEditorController {
         if (!allGood) return;
 
         if (person == null){
-            RegistrationDAO.getInstance().addEmployee(new Employee(-1,fieldFirstName.getText(),
+
+            person = new Employee(-1,fieldFirstName.getText(),
                     fieldLastName.getText(),fieldEmail.getText(),fieldImage.getText(),
-                    radioMale.isSelected() ? Person.Gender.Male : Person.Gender.Female));
+                    radioMale.isSelected() ? Person.Gender.Male : Person.Gender.Female);
+
+            RegistrationDAO.getInstance().addEmployee((Employee) person);
         }
 
         Stage stage = (Stage) fieldFirstName.getScene().getWindow();
