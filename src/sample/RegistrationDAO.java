@@ -306,4 +306,25 @@ public class RegistrationDAO {
 
     }
 
+    public void addWorkshop(Workshop workshop) {
+        Statement statement = null;
+        try {
+            int maxId = 1;
+            int maxId1 = 1;
+            statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select max(id) from workshop");
+            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
+
+            resultSet = statement.executeQuery("select  max(id) from examinable");
+            while (resultSet.next()) maxId1 = resultSet.getInt(1) + 1;
+
+            statement.execute("insert into workshop values(" + maxId + ");");
+            for (char c : workshop.getExaminableCategories().toCharArray()) {
+                statement.execute("insert into examinable values(" + (maxId1++) + "," + maxId + ",'" + c + "');");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

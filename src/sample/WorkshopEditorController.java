@@ -36,10 +36,14 @@ public class WorkshopEditorController {
         if (!allGood) return;
 
         if (workshop == null){
-            //dodaj; TODO
+            RegistrationDAO.getInstance().addWorkshop(new Workshop(-1,fieldCategories.getText()));
         }
 
         Stage stage = (Stage) fieldCategories.getScene().getWindow();
         stage.close();
+    }
+
+    public Workshop getWorkshop(){
+        return workshop;
     }
 }

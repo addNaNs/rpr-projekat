@@ -136,6 +136,12 @@ public class HomeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+
+            stage.setOnHiding( event -> {
+                if (workshopEditorController.getWorkshop() == null) {
+                    listWorkshop.setAll(dao.workshops());
+                }
+            } );
         } catch (IOException e) {
             e.printStackTrace();
         }
