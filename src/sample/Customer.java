@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 public class Customer extends Person {
 
+    public Customer(String firstName, String lastName, String email, String profileImagePath, Gender sex) {
+        super(firstName, lastName, email, profileImagePath, sex);
+    }
 
     public Customer(int id, String firstName, String lastName, String email, String profileImagePath, Gender sex) {
         super(id, firstName, lastName, email, profileImagePath, sex);

@@ -26,6 +26,15 @@ public class Person {
         this.sex = sex;
     }
 
+    public Person(String firstName, String lastName, String email, String profileImagePath, Gender sex){
+        this.id.set(-1);
+        this.firstName.set(firstName);
+        this.lastName.set(lastName);
+        this.email.set(email);
+        this.profileImagePath.set(profileImagePath);
+        this.sex = sex;
+    }
+
     public int getId() {
         return id.get();
     }
