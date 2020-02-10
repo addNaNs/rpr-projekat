@@ -45,7 +45,6 @@
       <TextField fx:id="fieldLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="fieldEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <TextField fx:id="fieldImage" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
        <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="4" GridPane.valignment="CENTER">
            <image>
                <Image url="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-omega-ruby-and-alpha-sapphire/d/d7/Regigigas.jpg?width=325" />
@@ -54,5 +53,14 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
        </ImageView>
+      <Separator prefWidth="200.0" valignment="TOP" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+      <RadioButton fx:id="radioMale" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Muško" GridPane.rowIndex="4">
+         <opaqueInsets>
+            <Insets left="15.0" />
+         </opaqueInsets>
+         <padding>
+            <Insets left="5.0" />
+         </padding></RadioButton>
+      <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="Žensko" GridPane.columnIndex="1" GridPane.rowIndex="4" />
    </children>
 </GridPane>

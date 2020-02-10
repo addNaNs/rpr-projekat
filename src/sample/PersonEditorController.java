@@ -5,7 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ public class PersonEditorController {
     public TextField fieldLastName;
     public TextField fieldEmail;
     public TextField fieldImage;
+    public RadioButton radioMale;
+    public RadioButton radioFemale;
     private Person person;
 
     public PersonEditorController(Person person) {
@@ -23,11 +27,20 @@ public class PersonEditorController {
 
     @FXML
     public void initialize() {
+        ToggleGroup groupSex = new ToggleGroup();
+        radioMale.setToggleGroup(groupSex);
+        radioFemale.setToggleGroup(groupSex);
+
         if (person != null) {
             fieldFirstName.textProperty().bindBidirectional(person.firstNameProperty());
             fieldLastName.textProperty().bindBidirectional(person.lastNameProperty());
             fieldEmail.textProperty().bindBidirectional(person.emailProperty());
             fieldImage.textProperty().bindBidirectional(person.profileImagePathProperty());
+            if(person.getSex() == Person.Gender.Male){
+                radioMale.fire();
+            }else{
+                radioFemale.fire();
+            }
         }
     }
 
