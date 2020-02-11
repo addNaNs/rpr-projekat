@@ -2,7 +2,7 @@ package sample;
 
 import java.util.Date;
 
-public class Checkup {
+public class Checkup implements Passable{
 
     Employee assignee;
     Vehicle vehicle;
@@ -74,5 +74,11 @@ public class Checkup {
 
     public boolean isPassedElectricalTest() {
         return passedElectricalTest;
+    }
+
+    @Override
+    public boolean passed() {
+        return isPassedBrakeTest() && isPassedElectricalTest() && isPassedEngineTest() &&
+                isPassedLightingTest() && isPassedSteeringTest();
     }
 }
