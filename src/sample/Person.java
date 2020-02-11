@@ -109,4 +109,9 @@ public class Person {
     public void setSex(Gender sex) {
         this.sex = sex;
     }
+
+    @Override
+    public String toString() {
+        return firstName.get() + " " + lastName.get() + "(" + id.get() + ")";
+    }
 }

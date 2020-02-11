@@ -92,7 +92,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" onAction="#actionCustomers" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>

@@ -198,5 +198,21 @@ public class HomeController {
         }
     }
 
+    public void actionCustomers(ActionEvent actionEvent){
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/customers.fxml"));
+            CustomersController customersController = new CustomersController();
+            loader.setController(customersController);
+            root = loader.load();
+            stage.setTitle("Mušterije");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
