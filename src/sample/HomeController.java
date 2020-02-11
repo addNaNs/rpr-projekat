@@ -8,21 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -202,11 +192,28 @@ public class HomeController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/customers.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"));
             CustomersController customersController = new CustomersController();
             loader.setController(customersController);
             root = loader.load();
             stage.setTitle("Mušterije");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void actionVehicles(ActionEvent actionEvent){
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"));
+            VehiclesController vehiclesController = new VehiclesController();
+            loader.setController(vehiclesController);
+            root = loader.load();
+            stage.setTitle("Vozila");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

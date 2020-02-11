@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,22 +8,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class CustomersController {
-    public ListView<Person> listMain;
-    private Person person;
+import java.util.ArrayList;
 
-    public CustomersController() {
+public class VehiclesController {
+    public ListView<Vehicle> listMain;
+    private Vehicle vehicle;
+
+    public VehiclesController() {
     }
 
     @FXML
     public void initialize() {
-        ObservableList<Person> list = FXCollections.observableArrayList();
-        RegistrationDAO.getInstance().customers().stream().forEach(a -> list.add(a));
+        ObservableList<Vehicle> list = FXCollections.observableArrayList();
+        RegistrationDAO.getInstance().vehicles().stream().forEach(a -> list.add(a));
         listMain.setItems(list);
     }
 
     public void clickCancel(ActionEvent actionEvent) {
-        person = null;
+        vehicle = null;
         Stage stage = (Stage) listMain.getScene().getWindow();
         stage.close();
     }
@@ -31,17 +34,17 @@ public class CustomersController {
         boolean allGood = true;
         if (!allGood) return;
 
-        if (person == null){
-            person = listMain.getSelectionModel().getSelectedItem();
+        if (vehicle == null){
+            vehicle = listMain.getSelectionModel().getSelectedItem();
         }
 
-        if(person != null) {
+        if(vehicle != null) {
             Stage stage = (Stage) listMain.getScene().getWindow();
             stage.close();
         }
     }
 
-    public Person getPerson(){
-        return person;
+    public Vehicle getVehicle(){
+        return vehicle;
     }
 }

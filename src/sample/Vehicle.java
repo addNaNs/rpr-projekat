@@ -65,4 +65,7 @@ public class Vehicle {
         this.category.set(category);
     }
 
+    public String toString(){
+        return plates.get() + "(" + category.get() + ")";
+    }
 }

@@ -18,6 +18,6 @@
             <Button fx:id="btnOk" mnemonicParsing="false" onAction="#clickOk" text="Ok" />
          </children>
       </HBox>
-      <ListView fx:id="listCustomers" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="listMain" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </GridPane>
