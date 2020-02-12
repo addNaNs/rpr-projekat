@@ -1,12 +1,12 @@
 package sample;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 
 public class NewCheckupController {
     public Label labelSelected;
@@ -25,10 +25,12 @@ public class NewCheckupController {
 
     public void actionNewVehicle(ActionEvent actionEvent){
         //dodaj novo TODO
+        return;
     }
 
     public void actionOldVehicle(ActionEvent actionEvent){
         //dodaj novo TODO
+        return;
     }
 
     public void clickCancel(ActionEvent actionEvent){

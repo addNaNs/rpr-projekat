@@ -227,7 +227,20 @@ public class HomeController {
     }
 
     public void actionNewCheckup(ActionEvent actionEvent){
-
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newCheckup.fxml"));
+            NewCheckupController newCheckupController = new NewCheckupController();
+            loader.setController(newCheckupController);
+            root = loader.load();
+            stage.setTitle("Novi pregled");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
