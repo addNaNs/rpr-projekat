@@ -226,5 +226,9 @@ public class HomeController {
         System.exit(0);
     }
 
+    public void actionNewCheckup(ActionEvent actionEvent){
+
+    }
+
 
 }
