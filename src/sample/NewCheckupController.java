@@ -1,12 +1,14 @@
 package sample;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -17,7 +19,9 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class NewCheckupController {
     public Label labelSelected;
+    public ChoiceBox cbAssignee;
     public CheckBox cbBrake, cbSteering, cbLighting, cbEngine, cbElectric;
+    private ObservableList<Employee> listEmployees;
 
     private Vehicle vehicle;
 
@@ -27,6 +31,9 @@ public class NewCheckupController {
 
     @FXML
     public void initialize() {
+        listEmployees = FXCollections.observableArrayList();
+        listEmployees.setAll(RegistrationDAO.getInstance().employees());
+        cbAssignee.setItems(listEmployees);
         labelSelected.setText("Please select a vehicle");
     }
 
@@ -87,7 +94,7 @@ public class NewCheckupController {
     }
 
     public void clickOk(javafx.event.ActionEvent actionEvent) {
-        if (vehicle == null){
+        if (vehicle == null || cbAssignee.getSelectionModel().isEmpty()){
             return;
         }
 
