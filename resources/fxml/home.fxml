@@ -78,7 +78,7 @@
       <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="9" GridPane.valignment="TOP" />
       <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="9">
          <children>
-            <Button mnemonicParsing="false" text="Kraj" />
+            <Button mnemonicParsing="false" text="Kraj" onAction="#endAction" cancelButton="true" />
             <Button mnemonicParsing="false" text="Pomoć" />
          </children>
          <opaqueInsets>

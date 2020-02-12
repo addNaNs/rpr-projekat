@@ -222,4 +222,9 @@ public class HomeController {
         }
     }
 
+    public void endAction(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+
 }

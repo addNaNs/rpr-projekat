@@ -5,6 +5,7 @@
 
 <GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <rowConstraints>
+      <RowConstraints minHeight="10.0" />
       <RowConstraints minHeight="10.0" prefHeight="180.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
@@ -12,12 +13,13 @@
       <ColumnConstraints minWidth="10.0" prefWidth="240.0" />
    </columnConstraints>
    <children>
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
             <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
             <Button fx:id="btnOk" mnemonicParsing="false" onAction="#clickOk" text="Ok" />
          </children>
       </HBox>
-      <ListView fx:id="listMain" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="listMain" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <TextField fx:id="fieldSearch" />
    </children>
 </GridPane>

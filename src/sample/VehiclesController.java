@@ -9,9 +9,12 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.stream.Collector;
 
 public class VehiclesController {
     public ListView<Vehicle> listMain;
+    public TextField fieldSearch;
+    ObservableList<Vehicle> list;
     private Vehicle vehicle;
 
     public VehiclesController() {
@@ -19,9 +22,9 @@ public class VehiclesController {
 
     @FXML
     public void initialize() {
-        ObservableList<Vehicle> list = FXCollections.observableArrayList();
+        list = FXCollections.observableArrayList();
         RegistrationDAO.getInstance().vehicles().stream().forEach(a -> list.add(a));
-        listMain.setItems(list);
+        singleListController.searchSetup(listMain, list, fieldSearch);
     }
 
     public void clickCancel(ActionEvent actionEvent) {
@@ -31,8 +34,6 @@ public class VehiclesController {
     }
 
     public void clickOk(ActionEvent actionEvent) {
-        boolean allGood = true;
-        if (!allGood) return;
 
         if (vehicle == null){
             vehicle = listMain.getSelectionModel().getSelectedItem();

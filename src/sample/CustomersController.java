@@ -7,8 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class CustomersController {
     public ListView<Person> listMain;
+    public TextField fieldSearch;
+    ObservableList<Person> list;
     private Person person;
 
     public CustomersController() {
@@ -16,9 +22,9 @@ public class CustomersController {
 
     @FXML
     public void initialize() {
-        ObservableList<Person> list = FXCollections.observableArrayList();
+        list = FXCollections.observableArrayList();
         RegistrationDAO.getInstance().customers().stream().forEach(a -> list.add(a));
-        listMain.setItems(list);
+        singleListController.searchSetup(listMain, list, fieldSearch);
     }
 
     public void clickCancel(ActionEvent actionEvent) {
@@ -28,9 +34,6 @@ public class CustomersController {
     }
 
     public void clickOk(ActionEvent actionEvent) {
-        boolean allGood = true;
-        if (!allGood) return;
-
         if (person == null){
             person = listMain.getSelectionModel().getSelectedItem();
         }
