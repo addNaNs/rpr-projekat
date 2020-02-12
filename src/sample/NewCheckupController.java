@@ -46,6 +46,7 @@ public class NewCheckupController {
             stage.setOnHiding(event -> {
                 if (newVehicleController.getVehicle() != null) {
                     vehicle = newVehicleController.getVehicle();
+                    RegistrationDAO.getInstance().addVehicle(vehicle);
                     labelSelected.setText("Izabrali ste:" + vehicle);
                 }
             });

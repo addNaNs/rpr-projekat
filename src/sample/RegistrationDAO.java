@@ -399,11 +399,8 @@ public class RegistrationDAO {
     public void addVehicle(Vehicle vehicle){
         Statement statement = null;
         try {
-            int maxId = 1;
             statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("select max(id) from vehicle");
-            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
-            statement.execute("insert into vehicle values(" + maxId +", '" + vehicle.getPlates() +"', '"
+            statement.execute("insert into vehicle values('" + vehicle.getPlates() +"', '"
                     + vehicle.getModel() + "', " + vehicle.getOwnerId() + ", '" + vehicle.getCategory()
                     + "');");
         } catch (SQLException e) {
