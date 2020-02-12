@@ -18,7 +18,7 @@
     </columnConstraints>
    <children>
       <Label text="Plates" />
-      <Label text="Owner" GridPane.rowIndex="1" />
+      <Label text="Owner" fx:id="labelOwner" GridPane.rowIndex="1" />
       <Label text="Category" GridPane.rowIndex="2" />
       <TextField fx:id="fieldPlates" GridPane.columnIndex="1" GridPane.columnSpan="2" />
       <ChoiceBox fx:id="cbCategory" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />

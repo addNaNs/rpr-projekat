@@ -69,11 +69,9 @@ public class PersonEditorController {
     public void clickOk(ActionEvent actionEvent) {
         if (person == null){
 
-            person = new Employee(-1,fieldFirstName.getText(),
+            person = new Person(-1,fieldFirstName.getText(),
                     fieldLastName.getText(),fieldEmail.getText(),fieldImage.getText(),
                     radioMale.isSelected() ? Person.Gender.Male : Person.Gender.Female);
-
-            RegistrationDAO.getInstance().addEmployee((Employee) person);
         }
 
         Stage stage = (Stage) fieldFirstName.getScene().getWindow();

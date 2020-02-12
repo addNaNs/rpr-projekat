@@ -31,7 +31,27 @@ public class NewCheckupController {
     }
 
     public void actionNewVehicle(ActionEvent actionEvent){
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newVehicle.fxml"));
+            NewVehicleController newVehicleController = new NewVehicleController();
+            loader.setController(newVehicleController);
+            root = loader.load();
+            stage.setTitle("Izaberite vozilo");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
 
+            stage.setOnHiding(event -> {
+                if (newVehicleController.getVehicle() != null) {
+                    vehicle = newVehicleController.getVehicle();
+                    labelSelected.setText("Izabrali ste:" + vehicle);
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void actionOldVehicle(ActionEvent actionEvent){

@@ -70,6 +70,7 @@ public class HomeController {
 
             stage.setOnHiding( event -> {
                 if (personEditorController.getPerson() != null) {
+                    RegistrationDAO.getInstance().addEmployee( new Employee( personEditorController.getPerson()));
                     listEmployee.setAll(dao.employees());
                 }
             } );
