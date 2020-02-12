@@ -379,4 +379,20 @@ public class RegistrationDAO {
             e.printStackTrace();
         }
     }
+
+    public void addCustomer(Customer customer){
+        Statement statement = null;
+        try {
+            int maxId = 1;
+            statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select max(id) from customer");
+            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
+            statement.execute("insert into customer values(" + maxId +", '" + customer.getFirstName() +"', '"
+                    + customer.getLastName() + "', '" + customer.getEmail() + "', '" + customer.getProfileImagePath()
+                    + "', '" + (customer.getSex() == Person.Gender.Male ? "male" : "female") + "');");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

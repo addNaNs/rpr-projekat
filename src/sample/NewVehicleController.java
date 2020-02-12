@@ -45,6 +45,7 @@ public class NewVehicleController {
             stage.setOnHiding( event -> {
                 if (personEditorController.getPerson() != null) {
                     owner = new Customer( personEditorController.getPerson());
+                    RegistrationDAO.getInstance().addCustomer(owner);
                     labelOwner.setText("Owner("+owner+")");
                 }
             } );
