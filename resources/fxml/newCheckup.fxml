@@ -30,6 +30,6 @@
       <CheckBox fx:id="cbLighting" mnemonicParsing="false" text="Lighting" GridPane.rowIndex="3" />
       <CheckBox fx:id="cbEngine" mnemonicParsing="false" text="Engine" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <CheckBox fx:id="cbElectric" mnemonicParsing="false" text="Electric" GridPane.rowIndex="4" />
-      <Label text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+      <Label fx:id="labelSelected" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
    </children>
 </GridPane>

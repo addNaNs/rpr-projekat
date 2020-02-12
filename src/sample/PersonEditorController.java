@@ -67,9 +67,6 @@ public class PersonEditorController {
     }
 
     public void clickOk(ActionEvent actionEvent) {
-        boolean allGood = true;
-        if (!allGood) return;
-
         if (person == null){
 
             person = new Employee(-1,fieldFirstName.getText(),
