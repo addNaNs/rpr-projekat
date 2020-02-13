@@ -2,6 +2,7 @@ package sample;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -407,8 +408,23 @@ public class RegistrationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
+    public void addCheckup(Checkup checkup){
+        Statement statement = null;
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            int maxId = 1;
+            statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("select max(id) from checkup");
+            while (resultSet.next()) maxId = resultSet.getInt(1) + 1;
 
+            statement.execute("insert into checkup values(" + maxId +", " + checkup.getAssignee().getId() +", '"
+                    + checkup.getVehicle().getPlates() + "', " + checkup.getWorkshop().getId() + ", " + (checkup.isPassedBrakeTest()?1:0)
+                    + ", " + (checkup.isPassedSteeringTest()?1:0) + ", " + (checkup.isPassedLightingTest()?1:0) + "," + (checkup.isPassedEngineTest()?1:0)
+                    + "," + (checkup.isPassedElectricalTest()?1:0) + ", date('" + dateFormat.format(checkup.getDate()) +  "'));");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
