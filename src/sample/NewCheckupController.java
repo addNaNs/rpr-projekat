@@ -19,14 +19,16 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class NewCheckupController {
     public Label labelSelected;
-    public ChoiceBox cbAssignee;
+    public ChoiceBox cbAssignee, cbWorkshop;
     public CheckBox cbBrake, cbSteering, cbLighting, cbEngine, cbElectric;
     private ObservableList<Employee> listEmployees;
-
+    private ObservableList<Workshop> listWorkshops;
+    private Checkup checkup;
     private Vehicle vehicle;
 
     public NewCheckupController() {
         vehicle = null;
+        checkup = null;
     }
 
     @FXML
@@ -34,6 +36,11 @@ public class NewCheckupController {
         listEmployees = FXCollections.observableArrayList();
         listEmployees.setAll(RegistrationDAO.getInstance().employees());
         cbAssignee.setItems(listEmployees);
+
+        listWorkshops = FXCollections.observableArrayList();
+        listWorkshops.setAll(RegistrationDAO.getInstance().workshops());
+        cbWorkshop.setItems(listWorkshops);
+
         labelSelected.setText("Please select a vehicle");
     }
 
@@ -94,13 +101,20 @@ public class NewCheckupController {
     }
 
     public void clickOk(javafx.event.ActionEvent actionEvent) {
-        if (vehicle == null || cbAssignee.getSelectionModel().isEmpty()){
+        if (vehicle == null || cbAssignee.getSelectionModel().isEmpty() || cbWorkshop.getSelectionModel().isEmpty()){
             return;
         }
+
+        checkup = new Checkup( (Employee) cbAssignee.getSelectionModel().getSelectedItem(), vehicle,
+                (Workshop) cbWorkshop.getSelectionModel().getSelectedItem(), cbBrake.isSelected(),
+                cbSteering.isSelected(), cbLighting.isSelected(), cbEngine.isSelected(), cbElectric.isSelected());
+        RegistrationDAO.getInstance().addCheckup(checkup);
 
         Stage stage = (Stage) labelSelected.getScene().getWindow();
         stage.close();
     }
 
     public Vehicle getVehicle(){return vehicle;}
+
+    public Checkup getCheckup(){return checkup;}
 }

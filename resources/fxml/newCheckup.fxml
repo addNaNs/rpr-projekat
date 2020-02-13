@@ -12,6 +12,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <columnConstraints>
       <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
@@ -20,19 +21,21 @@
    <children>
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionNewVehicle" text="New Vehicle" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionOldVehicle" text="Old Vehicle" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="7">
          <children>
             <Button mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
             <Button mnemonicParsing="false" onAction="#clickOk" text="Ok" />
          </children>
       </HBox>
-      <CheckBox fx:id="cbBrake" mnemonicParsing="false" text="Brake" GridPane.rowIndex="3" />
-      <CheckBox fx:id="cbSteering" mnemonicParsing="false" text="Steering" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <CheckBox fx:id="cbLighting" mnemonicParsing="false" text="Lighting" GridPane.rowIndex="4" />
-      <CheckBox fx:id="cbEngine" mnemonicParsing="false" text="Engine" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <CheckBox fx:id="cbElectric" mnemonicParsing="false" text="Electric" GridPane.rowIndex="5" />
+      <CheckBox fx:id="cbBrake" mnemonicParsing="false" text="Brake" GridPane.rowIndex="4" />
+      <CheckBox fx:id="cbSteering" mnemonicParsing="false" text="Steering" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <CheckBox fx:id="cbLighting" mnemonicParsing="false" text="Lighting" GridPane.rowIndex="5" />
+      <CheckBox fx:id="cbEngine" mnemonicParsing="false" text="Engine" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <CheckBox fx:id="cbElectric" mnemonicParsing="false" text="Electric" GridPane.rowIndex="6" />
       <Label fx:id="labelSelected" text="Label" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
       <Label text="Assignee:" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="cbAssignee" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="Workshop" GridPane.rowIndex="3" />
+      <ChoiceBox fx:id="cbWorkshop" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>
