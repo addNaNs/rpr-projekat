@@ -412,7 +412,8 @@ public class RegistrationDAO {
 
     public void addCheckup(Checkup checkup){
         Statement statement = null;
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD");
+        String useless = dateFormat.format(checkup.getDate());
         try {
             int maxId = 1;
             statement = conn.createStatement();
@@ -422,7 +423,7 @@ public class RegistrationDAO {
             statement.execute("insert into checkup values(" + maxId +", " + checkup.getAssignee().getId() +", '"
                     + checkup.getVehicle().getPlates() + "', " + checkup.getWorkshop().getId() + ", " + (checkup.isPassedBrakeTest()?1:0)
                     + ", " + (checkup.isPassedSteeringTest()?1:0) + ", " + (checkup.isPassedLightingTest()?1:0) + "," + (checkup.isPassedEngineTest()?1:0)
-                    + "," + (checkup.isPassedElectricalTest()?1:0) + ", date('" + dateFormat.format(checkup.getDate()) +  "'));");
+                    + "," + (checkup.isPassedElectricalTest()?1:0) + ", '" + dateFormat.format(checkup.getDate()) +  "');");
         } catch (SQLException e) {
             e.printStackTrace();
         }
