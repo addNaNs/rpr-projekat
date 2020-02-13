@@ -427,4 +427,8 @@ public class RegistrationDAO {
             e.printStackTrace();
         }
     }
+
+    public Connection getConn() {
+        return conn;
+    }
 }

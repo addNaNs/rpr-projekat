@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
 import java.util.Date;
@@ -242,6 +243,14 @@ public class HomeController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void actionPrintReport(ActionEvent actionEvent) {
+        try {
+            new PrintReport().showReport(dao.getConn());
+        } catch (JRException e1) {
+            e1.printStackTrace();
         }
     }
 
