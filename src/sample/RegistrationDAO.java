@@ -1,7 +1,6 @@
 package sample;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -431,5 +430,30 @@ public class RegistrationDAO {
 
     public Connection getConn() {
         return conn;
+    }
+
+    public void saveFile(File file) {
+        try {
+            if(file == null) return;
+
+            PrintWriter writer = new PrintWriter(file);
+
+            Statement statement = conn.createStatement();
+            ResultSet r = statement.executeQuery(
+                    "select v.plates, v.model, cus.first_name || ' ' || cus.last_name, e.first_name || ' ' || e.last_name, c.date,\n" +
+                            "c.passedBrakeTest*c.passedSteeringTest*c.passedLightingTest*c.passedEngineTest*c.passedElectricalTest\n" +
+                            "from checkup c, employee e, vehicle v, customer cus, workshop w\n" +
+                            "where c.assignee_id=e.id and v.plates=c.vehicle_plates and cus.id=v.owner_id and c.workshop_id=w.id;");
+            writer.println("vehicle_plates, vehicle_model, customer_name, employee_name, date, passed");
+            while(r.next()){
+                writer.println(r.getString(1)+","+r.getString(2)+","+r.getString(3)+","+r.getString(4)+","+r.getString(5)+","+r.getString(6));
+            }
+
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

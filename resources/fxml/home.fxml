@@ -102,7 +102,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-               <MenuItem mnemonicParsing="false" text="Save" />
+               <MenuItem mnemonicParsing="false" text="Save" onAction="#actionSave" />
                   <Menu mnemonicParsing="false" text="Language">
                     <items>
                       <RadioMenuItem fx:id="btnEng" mnemonicParsing="false" text="English" />

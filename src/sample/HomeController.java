@@ -9,9 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
@@ -254,5 +256,12 @@ public class HomeController {
         }
     }
 
+    public void actionSave(ActionEvent actionEvent){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File file = fileChooser.showSaveDialog(tableViewWorkshop.getScene().getWindow());
+        dao.saveFile(file);
 
+    }
 }
