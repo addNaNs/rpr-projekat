@@ -7,6 +7,7 @@
 
 <GridPane fx:id="pane" prefHeight="300.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <rowConstraints>
+      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -25,7 +26,7 @@
       <ColumnConstraints maxWidth="-Infinity" minWidth="10.0" prefWidth="150.0" />
    </columnConstraints>
    <children>
-      <TableView fx:id="tableViewEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4">
+      <TableView fx:id="tableViewEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
         <columns>
           <TableColumn fx:id="colEmployeeFirstName" prefWidth="100.0" text="Ime" />
           <TableColumn fx:id="colEmployeeLastName" prefWidth="140.0" text="Prezime" />
@@ -33,29 +34,29 @@
         </columns>
       </TableView>
 
-      <TableView fx:id="tableViewWorkshop" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" GridPane.rowSpan="4">
+      <TableView fx:id="tableViewWorkshop" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" GridPane.rowSpan="4">
          <columns>
             <TableColumn fx:id="colWorkshopId" prefWidth="184.0" text="Kod Radionice" />
             <TableColumn fx:id="colWorkshopCategories" prefWidth="213.0" text="Moguće Kategorije" />
          </columns>
       </TableView>
-      <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowSpan="9" />
-      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Novi Pregled" onAction="#actionNewCheckup" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowSpan="2">
+      <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.rowSpan="9" />
+      <Button mnemonicParsing="false" onAction="#actionNewCheckup" prefHeight="100000.0" prefWidth="100000.0" text="Novi Pregled" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <padding>
             <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
          </padding>
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin></Button>
-      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="3">
+      <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="3">
          <children>
             <Button mnemonicParsing="false" onAction="#actionUpdateEmployee" prefWidth="120.0" text="Pogledaj" />
             <Button mnemonicParsing="false" onAction="#actionAddEmployee" prefWidth="120.0" text="Dodaj" />
             <Button mnemonicParsing="false" onAction="#actionDeleteEmployee" prefWidth="120.0" text="Obriši" />
          </children></VBox>
 
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.rowSpan="3">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.rowSpan="3">
          <children>
             <Button mnemonicParsing="false" onAction="#actionUpdateWorkshop" prefWidth="120.0" text="Pogledaj" />
             <Button mnemonicParsing="false" onAction="#actionAddWorkshop" prefWidth="120.0" text="Dodaj" />
@@ -64,39 +65,61 @@
          <opaqueInsets>
             <Insets bottom="5.0" top="5.0" />
          </opaqueInsets></VBox>
-      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Izvještaj" onAction="#actionPrintReport" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+      <Button mnemonicParsing="false" onAction="#actionPrintReport" prefHeight="100000.0" prefWidth="100000.0" text="Izvještaj" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin>
       </Button>
-      <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-      <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="3" GridPane.valignment="CENTER">
+      <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="3" GridPane.valignment="CENTER">
          <image>
             <Image url="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-omega-ruby-and-alpha-sapphire/d/d7/Regigigas.jpg?width=325" />
          </image>
       </ImageView>
-      <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="9" GridPane.valignment="TOP" />
-      <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="9">
+      <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="10" GridPane.valignment="TOP" />
+      <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="10">
          <children>
-            <Button mnemonicParsing="false" text="Kraj" onAction="#endAction" cancelButton="true" />
-            <Button mnemonicParsing="false" text="Pomoć" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#endAction" prefWidth="80.0" text="Kraj" />
+            <Button mnemonicParsing="false" prefWidth="80.0" text="Pomoć" />
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </opaqueInsets>
       </HBox>
-      <Label text="Uposlenici" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <Label text="Radionice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Poznata Vozila" onAction="#actionVehicles" GridPane.columnIndex="3" GridPane.rowIndex="2">
+      <Label text="Uposlenici" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Label text="Radionice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#actionVehicles" prefHeight="100000.0" prefWidth="100000.0" text="Poznata Vozila" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" onAction="#actionCustomers" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" onAction="#actionCustomers" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" GridPane.columnIndex="3" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
+      <MenuBar GridPane.columnSpan="2147483647">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+               <MenuItem mnemonicParsing="false" text="Save" />
+                  <Menu mnemonicParsing="false" text="Language">
+                    <items>
+                      <RadioMenuItem fx:id="btnEng" mnemonicParsing="false" text="English" />
+                      <RadioMenuItem fx:id="btnBos" mnemonicParsing="false" text="Bosanski" />
+                    </items>
+                  </Menu>
+               <SeparatorMenuItem mnemonicParsing="false" />
+               <MenuItem mnemonicParsing="false" onAction="#endAction" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
 
    </children>
 </GridPane>
