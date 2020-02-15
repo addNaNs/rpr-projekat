@@ -55,13 +55,13 @@ public class RegistrationDAO {
                             " workshop_id integer references workshop(id), passedBrakeTest integer, passedSteeringTest integer," +
                             " passedLightingTest integer, passedEngineTest integer, passedElectricalTest integer, date date)");
 
-                    statement.execute("insert into employee values (1,'imenko','prezimenkovic','bla@bla','nema','male')");
-                    statement.execute("insert into employee values (2,'imenko2','prezimenkovic2','bla@bla2','nema','male')");
-                    statement.execute("insert into employee values (3,'imenko3','prezimenkovic3','bla@bla3','nema','male')");
+                    statement.execute("insert into employee values (1,'imenko','prezimenkovic','bla@bla','images/007.png','male')");
+                    statement.execute("insert into employee values (2,'imenko2','prezimenkovic2','bla@bla2','images/121.png','male')");
+                    statement.execute("insert into employee values (3,'imenko3','prezimenkovic3','bla@bla3','images/129.png','male')");
 
-                    statement.execute("insert into customer values (1,'imenko4','prezimenkovic4','bla@bla4','nema','male')");
-                    statement.execute("insert into customer values (2,'imenko5','prezimenkovic5','bla@bla5','nema','male')");
-                    statement.execute("insert into customer values (3,'imenko6','prezimenkovic6','bla@bla6','nema','male')");
+                    statement.execute("insert into customer values (1,'imenko4','prezimenkovic4','bla@bla4','images/172.png','male')");
+                    statement.execute("insert into customer values (2,'imenko5','prezimenkovic5','bla@bla5','images/257.png','male')");
+                    statement.execute("insert into customer values (3,'imenko6','prezimenkovic6','bla@bla6','images/304.png','male')");
 
                     statement.execute("insert into vehicle values ('123','Golf',1, 'B')");
                     statement.execute("insert into vehicle values ('124','Gol2',1, 'B')");
