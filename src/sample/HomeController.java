@@ -264,4 +264,21 @@ public class HomeController {
         dao.saveFile(file);
 
     }
+
+    public void actionHelp(ActionEvent actionEvent) throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        String url = "https://github.com/addNaNs/rpr-projekat";
+        String[] browsers = { "epiphany", "firefox", "mozilla", "konqueror",
+                "netscape", "opera", "links", "lynx" };
+
+        StringBuffer cmd = new StringBuffer();
+        for (int i = 0; i < browsers.length; i++)
+            if(i == 0)
+                cmd.append(String.format(    "%s \"%s\"", browsers[i], url));
+            else
+                cmd.append(String.format(" || %s \"%s\"", browsers[i], url));
+        // If the first didn't work, try the next browser and so on
+
+        rt.exec(new String[] { "sh", "-c", cmd.toString() });
+    }
 }

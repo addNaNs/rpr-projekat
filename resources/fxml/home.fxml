@@ -80,7 +80,7 @@
       <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="10">
          <children>
             <Button cancelButton="true" mnemonicParsing="false" onAction="#endAction" prefWidth="80.0" text="Kraj" />
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Pomoć" />
+            <Button mnemonicParsing="false" prefWidth="80.0" text="Pomoć" onAction="#actionHelp" />
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -115,7 +115,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="About" onAction="#actionHelp" />
             </items>
           </Menu>
         </menus>
