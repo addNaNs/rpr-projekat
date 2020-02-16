@@ -16,6 +16,7 @@ import net.sf.jasperreports.engine.JRException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -285,5 +286,29 @@ public class HomeController {
             else
                 cmd.append(String.format(" || %s \"%s\"", browsers[i], url));
         rt.exec(new String[] { "sh", "-c", cmd.toString() });
+    }
+
+    public void setBosAction(ActionEvent actionEvent){
+        selectLanguage(new Locale("bs","BA"));
+    }
+
+    public void setEngAction(ActionEvent actionEvent){
+        selectLanguage(new Locale("en","US"));
+    }
+
+    private void selectLanguage(Locale locale) {
+        Stage primaryStage = (Stage) tableViewWorkshop.getScene().getWindow();
+        Locale.setDefault(locale);
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"), bundle);
+        loader.setController(this);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
     }
 }

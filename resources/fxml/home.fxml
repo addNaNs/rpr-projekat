@@ -105,8 +105,8 @@
                <MenuItem mnemonicParsing="false" text="Save" onAction="#actionSave" />
                   <Menu mnemonicParsing="false" text="Language">
                     <items>
-                      <RadioMenuItem fx:id="btnEng" mnemonicParsing="false" text="English" />
-                      <RadioMenuItem fx:id="btnBos" mnemonicParsing="false" text="Bosanski" />
+                      <RadioMenuItem fx:id="btnEng" mnemonicParsing="false" onAction="#setEngAction" text="English" />
+                      <RadioMenuItem fx:id="btnBos" mnemonicParsing="false" onAction="#setBosAction" text="Bosanski" />
                     </items>
                   </Menu>
                <SeparatorMenuItem mnemonicParsing="false" />
