@@ -10,9 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class PersonEditorController {
     public TextField fieldFirstName;
@@ -70,6 +72,37 @@ public class PersonEditorController {
         fieldImage.textProperty().addListener(((observable, oldValue, newValue) -> {
             setImage(newValue);
         }));
+
+        fieldFirstName.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (!newValue.isEmpty() && Pattern.matches("[A-Za-z|[-]|[ ]|[ć]|[č]|[Ć]|[Č]|[š]|[Š]|[đ]|[Đ]|[ž]|[Ž]]+", newValue) && newValue.length()>=3) {
+                fieldFirstName.setStyle("-fx-text-inner-color: black;");
+            } else {
+                fieldFirstName.setStyle("-fx-text-inner-color: red;");
+            }
+        });
+
+        fieldLastName.textProperty().addListener((obs, oldValue, newValue) -> {
+            System.out.println("ssssss");
+            if (!newValue.isEmpty() && Pattern.matches("[A-Za-z|[-]|[ ]|[ć]|[č]|[Ć]|[Č]|[š]|[Š]|[đ]|[Đ]|[ž]|[Ž]]+", newValue) && newValue.length()>=3) {
+                fieldLastName.setStyle("-fx-text-inner-color: black;");
+            } else {
+                fieldLastName.setStyle("-fx-text-inner-color: red;");
+            }
+        });
+
+        fieldEmail.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (!newValue.isEmpty() && newValue.matches("(.*)+[A-Za-z0-9]+@+[A-Za-z0-9]+(.*)"))  {
+                fieldEmail.setStyle("-fx-text-inner-color: black;");
+            } else {
+                fieldEmail.setStyle("-fx-text-inner-color: red;");
+            }
+        });
+
+
+    }
+
+    private boolean isFieldValid(TextField textField){
+        return !textField.getStyle().equals("-fx-text-inner-color: red;");
     }
 
     private void setImage(String path){
@@ -90,6 +123,9 @@ public class PersonEditorController {
     }
 
     public void clickOk(ActionEvent actionEvent) {
+
+        if(!(isFieldValid(fieldFirstName) && isFieldValid(fieldLastName) && isFieldValid(fieldEmail))) return;
+
         if (person == null){
 
             person = new Person(-1,fieldFirstName.getText(),

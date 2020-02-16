@@ -1,0 +1,6 @@
+.fieldOk {
+    -fx-control-inner-background: greenyellow;
+}
+.fieldNotOk {
+    -fx-control-inner-background: #ff5b68;
+}
