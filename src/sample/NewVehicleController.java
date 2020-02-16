@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -47,11 +48,12 @@ public class NewVehicleController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"), bundle);
             PersonEditorController personEditorController = new PersonEditorController(null);
             loader.setController(personEditorController);
             root = loader.load();
-            stage.setTitle("Nova mušterija");
+            stage.setTitle("New Customer");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

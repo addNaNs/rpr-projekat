@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -63,11 +64,12 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"), bundle);
             PersonEditorController personEditorController = new PersonEditorController(null);
             loader.setController(personEditorController);
             root = loader.load();
-            stage.setTitle("Novi uposlenik");
+            stage.setTitle("New Employee");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -90,11 +92,12 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/personEditor.fxml"), bundle);
             PersonEditorController personEditorController = new PersonEditorController(employee);
             loader.setController(personEditorController);
             root = loader.load();
-            stage.setTitle("Promijeni uposlenika");
+            stage.setTitle("Employee");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -131,11 +134,12 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"), bundle);
             WorkshopEditorController workshopEditorController = new WorkshopEditorController(null);
             loader.setController(workshopEditorController);
             root = loader.load();
-            stage.setTitle("Nova Radionica");
+            stage.setTitle("New Workshop");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -156,11 +160,12 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/workshopEditor.fxml"), bundle);
             WorkshopEditorController workshopEditorController = new WorkshopEditorController(workshop);
             loader.setController(workshopEditorController);
             root = loader.load();
-            stage.setTitle("Promijeni radionicu");
+            stage.setTitle("Workshop");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -197,11 +202,12 @@ public class HomeController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"),bundle);
             CustomersController customersController = new CustomersController();
             loader.setController(customersController);
             root = loader.load();
-            stage.setTitle("Mušterije");
+            stage.setTitle("Customers");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -214,11 +220,12 @@ public class HomeController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/singleList.fxml"), bundle);
             VehiclesController vehiclesController = new VehiclesController();
             loader.setController(vehiclesController);
             root = loader.load();
-            stage.setTitle("Vozila");
+            stage.setTitle("Vehicles");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
@@ -235,11 +242,12 @@ public class HomeController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newCheckup.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newCheckup.fxml"), bundle);
             NewCheckupController newCheckupController = new NewCheckupController();
             loader.setController(newCheckupController);
             root = loader.load();
-            stage.setTitle("Novi pregled");
+            stage.setTitle("New Checkup");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();

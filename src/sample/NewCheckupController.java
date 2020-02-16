@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -48,11 +49,12 @@ public class NewCheckupController {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newVehicle.fxml"));
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/newVehicle.fxml"), bundle);
             NewVehicleController newVehicleController = new NewVehicleController();
             loader.setController(newVehicleController);
             root = loader.load();
-            stage.setTitle("Izaberite vozilo");
+            stage.setTitle("New Vehicle");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
