@@ -66,6 +66,6 @@ public class Vehicle {
     }
 
     public String toString(){
-        return plates.get() + "(" + category.get() + ")";
+        return model.get() + ", " + plates.get() + "(" + category.get() + ")";
     }
 }
