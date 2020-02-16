@@ -8,12 +8,12 @@ public class Workshop {
     SimpleIntegerProperty id = new SimpleIntegerProperty();
     SimpleStringProperty examinableCategories = new SimpleStringProperty();
 
-    public Workshop(int id, String examinableCategories){
+    public Workshop(int id, String examinableCategories) throws IllegalCategoryException {
         this.id.set(id);
         setExaminableCategories(examinableCategories);
     }
 
-    public Workshop(Workshop workshop) {
+    public Workshop(Workshop workshop) throws IllegalCategoryException {
         this( new Integer(workshop.getId()), new String(workshop.getExaminableCategories()));
     }
 
@@ -37,7 +37,7 @@ public class Workshop {
         return examinableCategories;
     }
 
-    public void setExaminableCategories(String examinableCategories) {
+    public void setExaminableCategories(String examinableCategories) throws IllegalCategoryException {
         checkCategory(examinableCategories);
         this.examinableCategories.set(examinableCategories);
     }
@@ -46,7 +46,7 @@ public class Workshop {
         return getId() + "(" + getExaminableCategories() + ")";
     }
 
-    public static boolean checkCategory(String s){
+    public static boolean checkCategory(String s) throws IllegalCategoryException {
         for (char c : s.toUpperCase().toCharArray()) {
             if(!("ABCDE").contains(String.valueOf(c))) throw new IllegalCategoryException("no such category");
         }

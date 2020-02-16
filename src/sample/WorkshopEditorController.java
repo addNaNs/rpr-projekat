@@ -16,7 +16,7 @@ public class WorkshopEditorController {
     private Workshop workshop;
     private boolean isCategoryOk = true;
 
-    public WorkshopEditorController(Workshop workshop) {
+    public WorkshopEditorController(Workshop workshop) throws IllegalCategoryException {
         if(workshop != null){
             this.workshop = new Workshop(workshop);
         }
@@ -49,16 +49,22 @@ public class WorkshopEditorController {
     public void clickOk(ActionEvent actionEvent) {
         if (!fieldCategories.getStyle().isEmpty()) return;
 
-        if (workshop == null){
-            workshop = new Workshop(-1,fieldCategories.getText());
-            RegistrationDAO.getInstance().addWorkshop(workshop);
-        }
+        try {
+            if (workshop == null) {
+                workshop = new Workshop(-1, fieldCategories.getText());
+                RegistrationDAO.getInstance().addWorkshop(workshop);
+            }
 
-        Stage stage = (Stage) fieldCategories.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) fieldCategories.getScene().getWindow();
+            stage.close();
+        }catch (IllegalCategoryException ex){
+            ex.printStackTrace();
+        }
     }
 
-    public Workshop getWorkshop(){
+    public Workshop getWorkshop() throws IllegalCategoryException {
+        if(workshop == null) return null;
+        Workshop.checkCategory(workshop.getExaminableCategories());
         return workshop;
     }
 }

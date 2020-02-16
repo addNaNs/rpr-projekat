@@ -145,12 +145,18 @@ public class HomeController {
             stage.setResizable(false);
             stage.show();
 
-            stage.setOnHiding( event -> {
-                if (workshopEditorController.getWorkshop() != null) {
-                    listWorkshop.setAll(dao.workshops());
-                }
-            } );
+                stage.setOnHiding(event -> {
+                    try {
+                        if (workshopEditorController.getWorkshop() != null) {
+                            listWorkshop.setAll(dao.workshops());
+                        }
+                    } catch (IllegalCategoryException e) {
+                        e.printStackTrace();
+                    }
+                });
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalCategoryException e) {
             e.printStackTrace();
         }
     }
@@ -170,15 +176,20 @@ public class HomeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
-
-            stage.setOnHiding( event -> {
-                if (workshopEditorController.getWorkshop() != null) {
-                    dao.updateWorkshop(workshopEditorController.getWorkshop());
-                    listWorkshop.setAll(dao.workshops());
-                }
-            } );
+                stage.setOnHiding(event -> {
+                    try {
+                        if (workshopEditorController.getWorkshop() != null) {
+                            dao.updateWorkshop(workshopEditorController.getWorkshop());
+                            listWorkshop.setAll(dao.workshops());
+                        }
+                    } catch (IllegalCategoryException e) {
+                        e.printStackTrace();
+                    }
+                });
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalCategoryException e) {
             e.printStackTrace();
         }
     }

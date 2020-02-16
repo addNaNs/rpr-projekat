@@ -222,8 +222,12 @@ public class RegistrationDAO {
                 }
                 sortCharsInString(examinable);
 
-                Workshop workshop = new Workshop(resultSet.getInt(1), examinable);
-                workshops.add(workshop);
+                try {
+                    Workshop workshop = new Workshop(resultSet.getInt(1), examinable);
+                    workshops.add(workshop);
+                }catch (IllegalCategoryException ex){
+                    ex.printStackTrace();
+                }
             }
 
 
@@ -270,7 +274,11 @@ public class RegistrationDAO {
                     }
                     sortCharsInString(examinable);
 
-                    workshop = new Workshop(resultSet.getInt(1), examinable);
+                    try {
+                        workshop = new Workshop(resultSet.getInt(1), examinable);
+                    } catch (IllegalCategoryException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 String sDate = resultSet.getString(10);
