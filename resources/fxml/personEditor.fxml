@@ -20,26 +20,26 @@
       <ColumnConstraints />
     </columnConstraints>
    <children>
-      <Label text="ime">
+      <Label text="%name">
          <padding>
             <Insets left="5.0" />
          </padding></Label>
-      <Label text="prezime" GridPane.rowIndex="1">
+      <Label text="%lastName" GridPane.rowIndex="1">
          <padding>
             <Insets left="5.0" />
          </padding></Label>
-      <Label text="email" GridPane.rowIndex="2">
+      <Label text="%email" GridPane.rowIndex="2">
          <padding>
             <Insets left="5.0" />
          </padding></Label>
-      <Label text="slika URL" GridPane.rowIndex="3">
+      <Label text="%imageURL" GridPane.rowIndex="3">
          <padding>
             <Insets left="5.0" />
          </padding></Label>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5">
          <children>
-            <Button mnemonicParsing="false" onAction="#clickCancel" text="Izadji" />
-            <Button mnemonicParsing="false" onAction="#clickOk" text="Ok" />
+            <Button mnemonicParsing="false" onAction="#clickCancel" text="%cancel" />
+            <Button mnemonicParsing="false" onAction="#clickOk" text="%ok" />
          </children></HBox>
       <TextField fx:id="fieldFirstName" GridPane.columnIndex="1" />
       <TextField fx:id="fieldLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -51,13 +51,13 @@
          </GridPane.margin>
        </ImageView>
       <Separator prefWidth="200.0" valignment="TOP" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-      <RadioButton fx:id="radioMale" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Muško" GridPane.rowIndex="4">
+      <RadioButton fx:id="radioMale" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="%male" GridPane.rowIndex="4">
          <opaqueInsets>
             <Insets left="15.0" />
          </opaqueInsets>
          <padding>
             <Insets left="5.0" />
          </padding></RadioButton>
-      <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="Žensko" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="%female" GridPane.columnIndex="1" GridPane.rowIndex="4" />
    </children>
 </GridPane>

@@ -15,8 +15,8 @@
    <children>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
-            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#clickOk" text="Ok" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#clickCancel" text="%cancel" />
+            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#clickOk" text="%ok" />
          </children>
       </HBox>
       <ListView fx:id="listMain" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />

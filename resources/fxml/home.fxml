@@ -28,21 +28,21 @@
    <children>
       <TableView fx:id="tableViewEmployee" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="4">
         <columns>
-          <TableColumn fx:id="colEmployeeFirstName" prefWidth="100.0" text="Ime" />
-          <TableColumn fx:id="colEmployeeLastName" prefWidth="140.0" text="Prezime" />
-          <TableColumn fx:id="colEmployeeEmail" prefWidth="150.0" text="e-mail" />
+          <TableColumn fx:id="colEmployeeFirstName" prefWidth="100.0" text="%name" />
+          <TableColumn fx:id="colEmployeeLastName" prefWidth="140.0" text="%lastName" />
+          <TableColumn fx:id="colEmployeeEmail" prefWidth="150.0" text="%email" />
         </columns>
       </TableView>
 
       <TableView fx:id="tableViewWorkshop" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" GridPane.rowSpan="4">
          <columns>
-            <TableColumn fx:id="colWorkshopId" prefWidth="184.0" text="Kod Radionice" />
-            <TableColumn fx:id="colWorkshopCategories" prefWidth="213.0" text="Moguće Kategorije" />
+            <TableColumn fx:id="colWorkshopId" prefWidth="184.0" text="%workshopCode" />
+            <TableColumn fx:id="colWorkshopCategories" prefWidth="213.0" text="%examinable" />
          </columns>
       </TableView>
       <Separator prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
       <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.rowSpan="9" />
-      <Button mnemonicParsing="false" onAction="#actionNewCheckup" prefHeight="100000.0" prefWidth="100000.0" text="Novi Pregled" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+      <Button mnemonicParsing="false" onAction="#actionNewCheckup" prefHeight="100000.0" prefWidth="100000.0" text="%newCheckup" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <padding>
             <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
          </padding>
@@ -51,21 +51,21 @@
          </GridPane.margin></Button>
       <VBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="3">
          <children>
-            <Button mnemonicParsing="false" onAction="#actionUpdateEmployee" prefWidth="120.0" text="Pogledaj" />
-            <Button mnemonicParsing="false" onAction="#actionAddEmployee" prefWidth="120.0" text="Dodaj" />
-            <Button mnemonicParsing="false" onAction="#actionDeleteEmployee" prefWidth="120.0" text="Obriši" />
+            <Button mnemonicParsing="false" onAction="#actionUpdateEmployee" prefWidth="120.0" text="%view" />
+            <Button mnemonicParsing="false" onAction="#actionAddEmployee" prefWidth="120.0" text="%add" />
+            <Button mnemonicParsing="false" onAction="#actionDeleteEmployee" prefWidth="120.0" text="%delete" />
          </children></VBox>
 
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.rowSpan="3">
          <children>
-            <Button mnemonicParsing="false" onAction="#actionUpdateWorkshop" prefWidth="120.0" text="Pogledaj" />
-            <Button mnemonicParsing="false" onAction="#actionAddWorkshop" prefWidth="120.0" text="Dodaj" />
-            <Button mnemonicParsing="false" onAction="#actionDeleteWorkshop" prefWidth="120.0" text="Obriši" />
+            <Button mnemonicParsing="false" onAction="#actionUpdateWorkshop" prefWidth="120.0" text="%view" />
+            <Button mnemonicParsing="false" onAction="#actionAddWorkshop" prefWidth="120.0" text="%add" />
+            <Button mnemonicParsing="false" onAction="#actionDeleteWorkshop" prefWidth="120.0" text="%delete" />
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" top="5.0" />
          </opaqueInsets></VBox>
-      <Button mnemonicParsing="false" onAction="#actionPrintReport" prefHeight="100000.0" prefWidth="100000.0" text="Izvještaj" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
+      <Button mnemonicParsing="false" onAction="#actionPrintReport" prefHeight="100000.0" prefWidth="100000.0" text="%report" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin>
@@ -79,8 +79,8 @@
       <Separator prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="10" GridPane.valignment="TOP" />
       <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="10">
          <children>
-            <Button cancelButton="true" mnemonicParsing="false" onAction="#endAction" prefWidth="80.0" text="Kraj" />
-            <Button mnemonicParsing="false" prefWidth="80.0" text="Pomoć" onAction="#actionHelp" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#endAction" prefWidth="80.0" text="%end" />
+            <Button mnemonicParsing="false" prefWidth="80.0" text="%help" onAction="#actionHelp" />
          </children>
          <opaqueInsets>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -88,12 +88,12 @@
       </HBox>
       <Label text="Uposlenici" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Label text="Radionice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-      <Button mnemonicParsing="false" onAction="#actionVehicles" prefHeight="100000.0" prefWidth="100000.0" text="Poznata Vozila" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Button mnemonicParsing="false" onAction="#actionVehicles" prefHeight="100000.0" prefWidth="100000.0" text="%vehicles" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#actionCustomers" prefHeight="100000.0" prefWidth="100000.0" text="Mušterije" GridPane.columnIndex="3" GridPane.rowIndex="4">
+      <Button mnemonicParsing="false" onAction="#actionCustomers" prefHeight="100000.0" prefWidth="100000.0" text="%customers" GridPane.columnIndex="3" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>

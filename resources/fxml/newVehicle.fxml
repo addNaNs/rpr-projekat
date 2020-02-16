@@ -18,20 +18,20 @@
         <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
    <children>
-      <Label text="Plates" />
-      <Label fx:id="labelOwner" text="Owner" GridPane.rowIndex="2" />
-      <Label text="Category" GridPane.rowIndex="3" />
+      <Label text="%plates" />
+      <Label fx:id="labelOwner" text="%owner" GridPane.rowIndex="2" />
+      <Label text="%category" GridPane.rowIndex="3" />
       <TextField fx:id="fieldPlates" GridPane.columnIndex="1" GridPane.columnSpan="2" />
       <ChoiceBox fx:id="cbCategory" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" onAction="#actionNewOwner" text="New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#actionOldOwner" text="Old" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#actionNewOwner" text="%new" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#actionOldOwner" text="%old" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
          <children>
-            <Button mnemonicParsing="false" onAction="#clickCancel" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#clickOk" text="Ok" />
+            <Button mnemonicParsing="false" onAction="#clickCancel" text="%cancel" />
+            <Button mnemonicParsing="false" onAction="#clickOk" text="%ok" />
          </children>
       </HBox>
-      <Label text="Model" GridPane.rowIndex="1" />
+      <Label text="%model" GridPane.rowIndex="1" />
       <TextField fx:id="fieldModel" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
    </children>
 
