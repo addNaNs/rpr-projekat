@@ -82,7 +82,6 @@ public class PersonEditorController {
         });
 
         fieldLastName.textProperty().addListener((obs, oldValue, newValue) -> {
-            System.out.println("ssssss");
             if (!newValue.isEmpty() && Pattern.matches("[A-Za-z|[-]|[ ]|[ć]|[č]|[Ć]|[Č]|[š]|[Š]|[đ]|[Đ]|[ž]|[Ž]]+", newValue) && newValue.length()>=3) {
                 fieldLastName.setStyle("-fx-text-inner-color: black;");
             } else {

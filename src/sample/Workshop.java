@@ -10,7 +10,7 @@ public class Workshop {
 
     public Workshop(int id, String examinableCategories){
         this.id.set(id);
-        this.examinableCategories.set(examinableCategories);
+        setExaminableCategories(examinableCategories);
     }
 
     public Workshop(Workshop workshop) {
@@ -38,6 +38,7 @@ public class Workshop {
     }
 
     public void setExaminableCategories(String examinableCategories) {
+        checkCategory(examinableCategories);
         this.examinableCategories.set(examinableCategories);
     }
 
@@ -45,4 +46,10 @@ public class Workshop {
         return getId() + "(" + getExaminableCategories() + ")";
     }
 
+    public static boolean checkCategory(String s){
+        for (char c : s.toUpperCase().toCharArray()) {
+            if(!("ABCDE").contains(String.valueOf(c))) throw new IllegalCategoryException("no such category");
+        }
+        return true;
+    }
 }
