@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.util.stream.Collector;
 
-public class singleListController {
+public class SingleListController {
 
     public static <T> void searchSetup(ListView<T> listMain, ObservableList<T> list, TextField fieldSearch){
         listMain.setItems(list);

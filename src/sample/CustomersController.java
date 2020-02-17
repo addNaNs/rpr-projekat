@@ -7,10 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 public class CustomersController {
     public ListView<Person> listMain;
     public TextField fieldSearch;
@@ -24,7 +20,7 @@ public class CustomersController {
     public void initialize() {
         list = FXCollections.observableArrayList();
         RegistrationDAO.getInstance().customers().stream().forEach(a -> list.add(a));
-        singleListController.searchSetup(listMain, list, fieldSearch);
+        SingleListController.searchSetup(listMain, list, fieldSearch);
     }
 
     public void clickCancel(ActionEvent actionEvent) {
